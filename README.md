@@ -44,6 +44,10 @@ The output will be a list of files that meet the criteria:
     foo> $ bundle exec rake olde_code_finder:find['app/models/*.rb','Benjamin Franklin','80']
     More than 80% of app/models/foobar.rb was written by Benjamin Franklin
 
+## How does it work?
+
+It uses `git blame` to see who last touched each line of a file.
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/factory_faster/fork )
