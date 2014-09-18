@@ -1,7 +1,7 @@
 # OldeCodeFinder
 
 OldeCodeFinder finds files which were mostly written by a particular person.  So if Fred left the company 3 years ago,
-files which consist mostly of lines which were written by him made be worth revisiting.
+files which consist mostly of lines which were written by him may be worth revisiting.
 
 ## Installation
 
