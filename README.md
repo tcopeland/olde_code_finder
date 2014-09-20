@@ -1,6 +1,6 @@
 # OldeCodeFinder
 
-OldeCodeFinder finds old code.  This means files which are largely older than a specific date. 
+OldeCodeFinder finds old code.  This means files which are largely older than a specific date.
 
 It can also find files which were mostly written by a particular person.  So if Fred left the company 3 years ago, files which consist mostly of lines which were written by him may be worth revisiting.
 

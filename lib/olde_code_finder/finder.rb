@@ -17,7 +17,7 @@ module OldeCodeFinder
         puts "More than #{pctg}% of #{file} was written by #{author}"
       end
     end
-    
+
     def check_by_date(date_string)
       years_ago = date_string.match(/^(\d+)/)[1].to_i
       date_threshold = (Date.today - (years_ago*365))
@@ -29,7 +29,7 @@ module OldeCodeFinder
     end
 
     private
-    
+
     def git_blame_output
       @git_blame_output ||= `git blame --date=short #{file}`.split("\n")
     end
