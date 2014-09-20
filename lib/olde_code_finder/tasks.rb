@@ -1,19 +1,16 @@
 namespace :olde_code_finder do
 
-  def checkit(file, author, pctg)
-    blame_output = `git blame #{file}`.split("\n")
-    total_lines = blame_output.size
-    author_lines = blame_output.grep(/#{author}/).size
-    if (author_lines / total_lines.to_f) > (pctg.to_f / 100.0)
-      puts "More than #{pctg}% of #{file} was written by #{author}"
+  desc "Find code that's mostly by a particular person"
+  task :find_by_author, [:glob, :author, :pctg] => :environment do |task, args|
+    Dir[args[:glob]].each do |file|
+      OldeCodeFinder::Finder.new(file, args[:pctg]).check_by_author(args[:author])
     end
   end
 
-  # e.g., bundle exec rake olde_code_finder:find['app/models/partner*','Ben Franklin','80']
-  desc "Find old code by a particular person"
-  task :find, [:glob, :author, :pctg] => :environment do |task, args|
+  desc "Find code older than a particular date"
+  task :find_by_date, [:glob, :date_string, :pctg] => :environment do |task, args|
     Dir[args[:glob]].each do |file|
-      checkit(file, args[:author], args[:pctg])
+      OldeCodeFinder::Finder.new(file, args[:pctg]).check_by_date(args[:date_string])
     end
   end
 end
