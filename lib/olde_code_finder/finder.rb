@@ -31,7 +31,7 @@ module OldeCodeFinder
     private
 
     def git_blame_output
-      @git_blame_output ||= `git blame --date=short #{file}`.split("\n")
+      @git_blame_output ||= `git blame --date=short #{file}`.split("\n").select {|x| x !~ /\s+\d+\)\s#/ }
     end
   end
 end
