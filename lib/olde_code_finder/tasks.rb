@@ -13,4 +13,5 @@ namespace :olde_code_finder do
       OldeCodeFinder::Finder.new(file, args[:pctg]).check_by_date(args[:date_string])
     end
   end
+
 end

@@ -1,3 +1,6 @@
+Sep 24, 2014: 0.0.4
+Fixed Rake dependency.  Without this, a Rails app wouldn't start when olde_code_finder was listed as a dependency.
+
 Sep 22, 2014: 0.0.3
 Skip Ruby comment lines
 
