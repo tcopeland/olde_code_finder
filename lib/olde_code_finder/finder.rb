@@ -11,6 +11,7 @@ module OldeCodeFinder
     end
 
     def check_by_author(author)
+      return if binary?
       total_lines = git_blame_output.size
       author_lines = git_blame_output.grep(/#{author}/).size
       if (author_lines / total_lines.to_f) > (pctg.to_f / 100.0)
@@ -19,6 +20,7 @@ module OldeCodeFinder
     end
 
     def check_by_date(date_string)
+      return if binary?
       years_ago = date_string.match(/^(\d+)/)[1].to_i
       date_threshold = (Date.today - (years_ago*365))
       total_lines = git_blame_output.size
@@ -29,6 +31,10 @@ module OldeCodeFinder
     end
 
     private
+
+    def binary?
+      `git diff --numstat 4b825dc642cb6eb9a060e54bf8d69288fbee4904 HEAD -- #{file}`.match(/^-\t-\t/)
+    end
 
     def git_blame_output
       @git_blame_output ||= `git blame --date=short #{file}`.split("\n").select {|x| x !~ /\s+\d+\)\s#/ }
