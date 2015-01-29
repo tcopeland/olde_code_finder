@@ -47,7 +47,7 @@ Or you can run a different task and find code older than a certain date instead:
 The output will be a list of files that meet the criteria:
 
     foo> $ bundle exec rake olde_code_finder:find_by_author['app/models/*.rb','Benjamin Franklin','80']
-    More than 80% of app/models/foobar.rb was written by Benjamin Franklin
+    More than 80% of app/models/foobar.rb was written by Benjamin Franklin (85%)
 
 ## How does it work?
 
@@ -60,3 +60,8 @@ It uses `git blame` to see who last touched each line of a file and when.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Credits
+
+* Tom Copeland: Author
+* Joe Rafaniello: Added percentage display
