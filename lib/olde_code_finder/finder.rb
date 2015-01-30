@@ -13,6 +13,8 @@ module OldeCodeFinder
     def check_by_author(author)
       return if binary?
       total_lines = git_blame_output.size
+      return if total_lines == 0
+
       author_lines = git_blame_output.grep(/#{author}/).size
       actual_percent = calculate_percent(author_lines, total_lines)
       if actual_percent > pctg.to_f
@@ -25,6 +27,8 @@ module OldeCodeFinder
       years_ago = date_string.match(/^(\d+)/)[1].to_i
       date_threshold = (Date.today - (years_ago*365))
       total_lines = git_blame_output.size
+      return if total_lines == 0
+
       older_lines = git_blame_output.select {|line| Date.strptime(line.match(/.*(\d{4}-\d{2}-\d{2})/)[1]) < date_threshold }.size
       actual_percent = calculate_percent(older_lines, total_lines)
       if actual_percent > pctg.to_f
