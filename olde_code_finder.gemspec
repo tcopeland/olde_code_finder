@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tom.copeland@livingsocial.com"]
   spec.summary       = %q{OldeCodeFinder finds your olde code.}
   spec.description   = %q{OldeCodeFinder finds your olde code.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tcopeland/olde_code_finder"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
