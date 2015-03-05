@@ -10,18 +10,6 @@ Add this line to your application's `Gemfile` in the 'development' group:
 
     gem 'olde_code_finder'
 
-And add this to your `Rakefile`:
-
-    begin; require 'olde_code_finder/tasks'; rescue LoadError; end
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install olde_code_finder
-
 ## Usage
 
 See if more than 80% of `app/models/foo.rb` was written by Benjamin Franklin:
